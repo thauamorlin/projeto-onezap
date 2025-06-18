@@ -1,0 +1,141 @@
+{
+  "name": "desktop",
+  "version": "3.2.1",
+  "private": true,
+  "homepage": "./",
+  "main": "src/electron-starter.js",
+  "author": {
+    "name": "Marcus Gonçalves",
+    "email": "marcusgoncalves067@gmail.com"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build-react": "react-scripts build",
+    "prebuild": "npm run build-react && node scripts/hide.code.js",
+    "build-electron": "electron-builder build --publish never",
+    "pack": "electron-builder --dir",
+    "dist": "npm run prebuild && npm run build-electron",
+    "dev": "nf start -p 3337",
+    "electron": "electron .",
+    "build-platform": "npm run prebuild && electron-builder build --publish never --",
+    "build-windows": "npm run build-platform win",
+    "build-mac": "npm run build-platform mac",
+    "build-linux": "npm run build-platform linux",
+    "build-platform-publish": "npm run prebuild && electron-builder build --publish always --",
+    "build-windows-publish": "npm run build-platform-publish win",
+    "build-mac-publish": "npm run build-platform-publish mac",
+    "build-linux-publish": "npm run build-platform-publish linux -c.snap.publish=github",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "./src/icons/mac/icon.icns"
+      },
+      "makers": []
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "appId": "zap-gpt",
+    "productName": "Zap GPT",
+    "copyright": "Copyright @2024 Zap GPT",
+    "buildVersion": "1",
+    "files": [
+      "./dist-src/electron-starter.js",
+      "./build/**/*",
+      "./dist-src/shared/*",
+      "./dist-src/core/**/*",
+      "./node_modules/**/*"
+    ],
+    "extraMetadata": {
+      "main": "./dist-src/electron-starter.js"
+    },
+    "extends": null,
+    "mac": {
+      "category": "zapgpt"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "icon": "./src/icons/win/512x512.png",
+    "publish": [
+      {
+        "provider": "s3",
+        "bucket": "zap-gpt-client",
+        "region": "us-east-2",
+        "acl": "public-read"
+      }
+    ]
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@headlessui/react": "^1.7.15",
+    "@radix-ui/react-dialog": "^1.1.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@whiskeysockets/baileys": "6.7.16",
+    "auto-launch": "^5.0.6",
+    "axios": "^1.6.2",
+    "call-bind-apply-helpers": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "console": "^0.7.2",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.4.7",
+    "electron-router-dom": "^1.0.5",
+    "electron-updater": "^6.1.8",
+    "framer-motion": "^11.16.0",
+    "fs-extra": "^11.3.0",
+    "jwt-decode": "^4.0.0",
+    "lucide-react": "^0.378.0",
+    "node-cache": "^5.1.2",
+    "node-machine-id": "^1.1.12",
+    "node-notifier": "^10.0.1",
+    "openai": "^4.63.0",
+    "pino": "^9.1.0",
+    "qrcode": "^1.5.3",
+    "react": "^18.2.0",
+    "react-content-loader": "^7.0.0",
+    "react-dom": "^18.2.0",
+    "react-google-recaptcha": "^3.1.0",
+    "react-google-recaptcha-v3": "^1.10.1",
+    "react-qrcode-logo": "^2.9.0",
+    "react-router-dom": "^6.19.0",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.8.0",
+    "react-toastify": "^9.1.3",
+    "react-youtube": "^10.1.0",
+    "shadcn-ui": "^0.9.5",
+    "socket.io": "^4.4.1",
+    "socket.io-client": "^4.4.1",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7",
+    "uglify-js": "^3.19.3",
+    "universal-cookie": "^6.1.1",
+    "web-vitals": "^3.5.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/socket.io": "^3.0.2",
+    "electron": "^30.0.6",
+    "electron-builder": "^25.1.8",
+    "electron-log": "^5.1.5",
+    "foreman": "^3.0.1",
+    "javascript-obfuscator": "^4.1.1",
+    "tailwindcss": "^3.3.5"
+  }
+}

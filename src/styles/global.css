@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  background: transparent;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Estiliza o track (trilha) da barra de rolagem */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Estiliza o thumb (ponteiro) da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+  background-color: #2ab09c; /* Nova cor principal */
+}
+
+/* Estiliza o thumb (ponteiro) da barra de rolagem quando hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #36c2ad; /* Tom mais claro da nova cor */
+}
+
+
+.loading {
+  animation: pulse 0.9s infinite;
+  transform: scale(0.75);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.75);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.75);
+  }
+}
+
+.css-dev-only-do-not-override-veaxbb.ant-picker-dropdown .ant-picker-time-panel-column::after {
+  display: none!important;
+}
+
+
+@layer base {
+  :root {
+    --background: #F2F2F2;
+    --foreground: #2f4858;
+
+    --muted: #f3eada;
+    --muted-foreground: #2f4858;
+
+    --border: #f3eada;
+    --input: #F2F2F2;
+
+    --card: #f3eada;
+    --card-foreground: #2f4858;
+
+    --primary: #2AB09C;
+    --primary-foreground: #F2F2F2;
+
+    --secondary: #005b45;
+    --secondary-foreground: #F2F2F2;
+
+    --accent: #2AB09C;
+    --accent-foreground: #F2F2F2;
+
+    --destructive: #005b45;
+    --destructive-foreground: #F2F2F2;
+
+    --ring: #2AB09C;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #2f4858;
+    --foreground: #F2F2F2;
+
+    --muted: #005b45;
+    --muted-foreground: #F2F2F2;
+
+    --border: #005b45;
+    --input: #005b45;
+
+    --card: #2f4858;
+    --card-foreground: #F2F2F2;
+
+    --primary: #2AB09C;
+    --primary-foreground: #F2F2F2;
+
+    --secondary: #005b45;
+    --secondary-foreground: #F2F2F2;
+
+    --accent: #2AB09C;
+    --accent-foreground: #F2F2F2;
+
+    --destructive: #005b45;
+    --destructive-foreground: #F2F2F2;
+
+    --ring: #2AB09C;
+
+    --radius: 0.5rem;
+  }
+}
+
+/* Animações e estilos para as mensagens do chat */
+@keyframes pulse-subtle {
+  0% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(var(--primary-rgb), 0); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0); }
+}
+
+.shadow-glow-primary {
+  --primary-rgb: 76, 175, 80;
+  box-shadow: 0 0 15px 0 rgba(var(--primary-rgb), 0.6);
+}
+
+.shadow-glow-accent {
+  --primary-rgb: 33, 150, 243;
+  box-shadow: 0 0 15px 0 rgba(var(--primary-rgb), 0.6);
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s infinite;
+}
+
+/* Estilos de scrollbar customizados para o chat */
+.chat-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(76, 175, 80, 0.3);
+  border-radius: 3px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(76, 175, 80, 0.5);
+}
+
+/* Ocultar scrollbar quando não estiver em uso */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animação de slideUp usada no menu */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out forwards;
+}

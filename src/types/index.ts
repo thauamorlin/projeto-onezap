@@ -1,0 +1,34 @@
+export type aiSelected = "GPT" | "GEMINI"
+
+export interface Settings {
+  AI_SELECTED: string;
+  OPENAI_KEY: string;
+  OPENAI_ASSISTANT: string;
+  GEMINI_KEY: string;
+  GEMINI_PROMPT: string;
+  DEEPSEEK_PROMPT: string;
+  DEEPSEEK_KEY: string;
+  DEEPSEEK_MODEL: string;
+  MENSAGEM_PARA_ENVIAR_QUANDO_RECEBER_TIPO_DESCONHECIDO: string;
+  HORAS_PARA_REATIVAR_IA: string;
+  SOMENTE_RESPONDER: string[];
+  NAO_RESPONDER: string[];
+  SEGUNDOS_PARA_ESPERAR_ANTES_DE_GERAR_RESPOSTA: string;
+  VISUALIZAR_MENSAGENS: boolean,
+  ENVIO_EM_BLOCO: boolean,
+  INCLUIR_NOME_CONTATO: boolean,
+  MESSAGE_TIMER_PRESET: string,
+  MESSAGE_DELAY_FACTOR: number,
+  MESSAGE_DELAY_MAX: number,
+  INTERVENCAO_HUMANA_IMEDIATA: boolean,
+  // Configurações de follow-up
+  FOLLOW_UP_ATIVO: boolean,
+  FOLLOW_UP_TEMPO_VERIFICACAO: string,
+  FOLLOW_UP_GERAR_IA: boolean,
+  FOLLOW_UP_INTERVALO_HORAS: string,
+  FOLLOW_UP_QUANTIDADE_MENSAGENS: string,
+  FOLLOW_UP_MENSAGEM_1: string,
+  FOLLOW_UP_MENSAGEM_2: string,
+  FOLLOW_UP_MENSAGEM_3: string,
+  FOLLOW_UP_PROMPT: string,
+}
