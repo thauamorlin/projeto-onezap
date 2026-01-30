@@ -21,9 +21,32 @@ const logger = pino({
 });
 
 // Initialize Firebase Admin
+// Supports: FIREBASE_SERVICE_ACCOUNT (JSON string) or GOOGLE_APPLICATION_CREDENTIALS (file path)
 if (!admin.apps.length) {
+    let credential;
+
+    if (process.env.FIREBASE_SERVICE_ACCOUNT) {
+        // Service account JSON string from env var
+        try {
+            const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+            credential = admin.credential.cert(serviceAccount);
+            logger.info('Using Firebase service account from env var');
+        } catch (e) {
+            logger.error({ error: e }, 'Failed to parse FIREBASE_SERVICE_ACCOUNT');
+            throw e;
+        }
+    } else if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+        // Service account file path
+        credential = admin.credential.applicationDefault();
+        logger.info('Using Firebase credentials from GOOGLE_APPLICATION_CREDENTIALS file');
+    } else {
+        // Try application default (works on GCP)
+        credential = admin.credential.applicationDefault();
+        logger.info('Using Firebase application default credentials');
+    }
+
     admin.initializeApp({
-        credential: admin.credential.applicationDefault(),
+        credential,
         projectId: process.env.FIREBASE_PROJECT_ID || 'onezap-saas'
     });
 }
