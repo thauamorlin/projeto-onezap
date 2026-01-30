@@ -88,10 +88,13 @@ app.post('/instances/:instanceId/connect', async (req, res) => {
         const { instanceId } = req.params;
         const { userId } = req.body;
 
-        // Verify instance ownership
-        const instanceDoc = await db.collection('instances').doc(instanceId).get();
-        if (!instanceDoc.exists || instanceDoc.data().userId !== userId) {
-            return res.status(403).json({ error: 'Acesso negado' });
+        // Verify instance ownership (subcollection: users/{userId}/instances/{instanceId})
+        if (!userId) {
+            return res.status(400).json({ error: 'userId é obrigatório' });
+        }
+        const instanceDoc = await db.collection('users').doc(userId).collection('instances').doc(instanceId).get();
+        if (!instanceDoc.exists) {
+            return res.status(403).json({ error: 'Instância não encontrada ou acesso negado' });
         }
 
         // Start connection
@@ -109,10 +112,13 @@ app.post('/instances/:instanceId/disconnect', async (req, res) => {
         const { instanceId } = req.params;
         const { userId } = req.body;
 
-        // Verify instance ownership
-        const instanceDoc = await db.collection('instances').doc(instanceId).get();
-        if (!instanceDoc.exists || instanceDoc.data().userId !== userId) {
-            return res.status(403).json({ error: 'Acesso negado' });
+        // Verify instance ownership (subcollection: users/{userId}/instances/{instanceId})
+        if (!userId) {
+            return res.status(400).json({ error: 'userId é obrigatório' });
+        }
+        const instanceDoc = await db.collection('users').doc(userId).collection('instances').doc(instanceId).get();
+        if (!instanceDoc.exists) {
+            return res.status(403).json({ error: 'Instância não encontrada ou acesso negado' });
         }
 
         await baileysManager.disconnect(instanceId);
@@ -141,10 +147,13 @@ app.post('/instances/:instanceId/send', async (req, res) => {
         const { instanceId } = req.params;
         const { to, message, userId } = req.body;
 
-        // Verify instance ownership
-        const instanceDoc = await db.collection('instances').doc(instanceId).get();
-        if (!instanceDoc.exists || instanceDoc.data().userId !== userId) {
-            return res.status(403).json({ error: 'Acesso negado' });
+        // Verify instance ownership (subcollection: users/{userId}/instances/{instanceId})
+        if (!userId) {
+            return res.status(400).json({ error: 'userId é obrigatório' });
+        }
+        const instanceDoc = await db.collection('users').doc(userId).collection('instances').doc(instanceId).get();
+        if (!instanceDoc.exists) {
+            return res.status(403).json({ error: 'Instância não encontrada ou acesso negado' });
         }
 
         const result = await baileysManager.sendMessage(instanceId, to, message);
