@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { AuthProvider } from "./firebase";
 import { LoginPage, RegisterPage, ForgotPasswordPage, ProtectedRoute } from "./pages/Auth";
-import AppLayout from "./layouts/AppLayout";
+import AppLayoutWeb from "./layouts/AppLayoutWeb";
 
 /**
  * Componente principal para a versão WEB/SaaS do OneZap
@@ -29,7 +29,7 @@ function AppWeb() {
                         path="/*"
                         element={
                             <ProtectedRoute>
-                                <AppLayout />
+                                <AppLayoutWeb />
                             </ProtectedRoute>
                         }
                     />
@@ -43,3 +43,4 @@ function AppWeb() {
 }
 
 export default AppWeb;
+

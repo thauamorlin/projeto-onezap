@@ -21,6 +21,11 @@ service cloud.firestore {
     // Users collection - each user can only access their own data
     match /users/{userId} {
       allow read, write: if isOwner(userId);
+      
+      // User's WhatsApp instances subcollection
+      match /instances/{instanceId} {
+        allow read, write: if isOwner(userId);
+      }
     }
     
     // Subscriptions - users can read their own, only backend can write
