@@ -376,11 +376,11 @@ function AppLayout({ onLogout }) {
 								</tr>
 								<tr className="border-b border-dashboardCard/30">
 									<td className="p-3 text-white">🖥️ VPS Windows (sua própria)</td>
-									<td className="p-3 text-gray-300">Você instala o Zap GPT numa VPS Windows e deixa as janelas abertas lá.</td>
+									<td className="p-3 text-gray-300">Você instala o OneZap numa VPS Windows e deixa as janelas abertas lá.</td>
 									<td className="p-3 text-gray-300">Você paga apenas a VPS (5$ / mês). Instâncias ilimitadas. Tutorial passo‑a‑passo incluso na aba de "Tutoriais".</td>
 								</tr>
 								<tr>
-									<td className="p-3 text-white">☁️ Zap GPT Cloud (em breve)</td>
+									<td className="p-3 text-white">☁️ OneZap Cloud (em breve)</td>
 									<td className="p-3 text-gray-300">Rodamos tudo nos nossos servidores, 24/7, sem precisar configurar nada.</td>
 									<td className="p-3 text-gray-300">Cobrança por instância ativa para cobrir a infraestrutura.</td>
 								</tr>
@@ -644,7 +644,7 @@ function AppLayout({ onLogout }) {
 							<div className="text-center my-4">
 								<div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3 text-sm">
 									<p className="text-amber-200 mb-2">
-										⚠️ Zap GPT funciona só enquanto o app estiver aberto.
+										⚠️ OneZap funciona só enquanto o app estiver aberto.
 									</p>
 									<button
 										type="button"

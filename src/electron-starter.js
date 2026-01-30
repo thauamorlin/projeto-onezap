@@ -84,8 +84,8 @@ const generateDeviceId = () => {
 const deviceId = generateDeviceId();
 console.log("Device ID:", deviceId);
 
-const appID = "zap-gpt";
-const appName = "Zap GPT";
+const appID = "onezap";
+const appName = "OneZap";
 const icon = path.join(__dirname, "icons", "win", "favicon.ico");
 
 /**
@@ -145,7 +145,7 @@ function createWindow() {
 		for (const instanceId in socketClients) {
 			if (socketClients[instanceId]) {
 				socketClients[instanceId].end(
-					new Error("disconnect by logout zap-gpt"),
+					new Error("disconnect by logout onezap"),
 				);
 				// @ts-ignore
 				socketClients[instanceId] = null;
@@ -160,7 +160,7 @@ function createWindow() {
 			if (socketClients[instanceId]) {
 				console.log(`Desconectando instância: ${instanceId}`);
 				socketClients[instanceId].end(
-					new Error("disconnect by logout zap-gpt"),
+					new Error("disconnect by logout onezap"),
 				);
 				// @ts-ignore
 				socketClients[instanceId] = null;
@@ -268,12 +268,13 @@ function createWindow() {
 			}
 
 			const instances = files
-				.filter((file) => file.startsWith("zap-gpt-auth"))
-				.map((file) =>
-					file === "zap-gpt-auth"
-						? "default"
-						: file.replace("zap-gpt-auth-", ""),
-				);
+				.filter((file) => file.startsWith("onezap-auth") || file.startsWith("zap-gpt-auth"))
+				.map((file) => {
+					if (file === "onezap-auth" || file === "zap-gpt-auth") return "default";
+					if (file.startsWith("onezap-auth-")) return file.replace("onezap-auth-", "");
+					return file.replace("zap-gpt-auth-", "");
+				})
+				.filter((value, index, self) => self.indexOf(value) === index); // Remove duplicatas
 
 			event.reply(channels.GET_INSTANCE_LIST_REPLY, instances);
 		});
@@ -324,12 +325,13 @@ function createWindow() {
 			}
 
 			const instances = files
-				.filter((file) => file.startsWith("zap-gpt-auth"))
-				.map((file) =>
-					file === "zap-gpt-auth"
-						? "default"
-						: file.replace("zap-gpt-auth-", ""),
-				);
+				.filter((file) => file.startsWith("onezap-auth") || file.startsWith("zap-gpt-auth"))
+				.map((file) => {
+					if (file === "onezap-auth" || file === "zap-gpt-auth") return "default";
+					if (file.startsWith("onezap-auth-")) return file.replace("onezap-auth-", "");
+					return file.replace("zap-gpt-auth-", "");
+				})
+				.filter((value, index, self) => self.indexOf(value) === index); // Remove duplicatas
 
 			event.sender.send(channels.GET_INSTANCE_LIST_REPLY, instances);
 		});
@@ -463,7 +465,7 @@ function createWindow() {
 		width: 1200,
 		height: 900,
 		icon: path.join(__dirname, "icons", "win", "256x256.png"),
-		title: "Zap GPT",
+		title: "OneZap",
 		webPreferences: {
 			nodeIntegration: true,
 			// enableRemoteModule: true,

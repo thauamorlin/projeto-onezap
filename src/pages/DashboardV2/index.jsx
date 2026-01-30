@@ -51,7 +51,7 @@ const CustomDateRangeModal = ({ isOpen, onClose, startDate, endDate, onDateChang
       today.setHours(23, 59, 59, 999);
       const startDateObj = new Date(tempStartDate);
       const endDateObj = new Date(tempEndDate);
-      
+
       if (startDateObj <= today && endDateObj <= today && startDateObj <= endDateObj) {
         onDateChange(tempStartDate, tempEndDate);
         onClose();
@@ -60,19 +60,19 @@ const CustomDateRangeModal = ({ isOpen, onClose, startDate, endDate, onDateChang
   };
 
   const today = new Date().toISOString().split('T')[0];
-  const isValidRange = tempStartDate && tempEndDate && tempStartDate <= tempEndDate && 
-                      new Date(tempStartDate) <= new Date(today) && new Date(tempEndDate) <= new Date(today);
+  const isValidRange = tempStartDate && tempEndDate && tempStartDate <= tempEndDate &&
+    new Date(tempStartDate) <= new Date(today) && new Date(tempEndDate) <= new Date(today);
 
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       {/* Backdrop */}
-      <div 
+      <div
         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
         onClick={onClose}
       />
-      
+
       {/* Modal */}
       <div className="relative w-full max-w-4xl bg-gradient-to-br from-dashboardCard to-dashboardBg border border-primaryColor/30 rounded-2xl shadow-2xl overflow-hidden">
         {/* Header */}
@@ -118,7 +118,7 @@ const CustomDateRangeModal = ({ isOpen, onClose, startDate, endDate, onDateChang
                 }}
               />
             </div>
-            
+
             <div>
               <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
                 <CalendarCheck className="w-4 h-4 text-green-400" />
@@ -295,17 +295,17 @@ const CustomDatePicker = ({ value, onChange, maxDate, minDate, label, icon: Icon
     const startingDayOfWeek = firstDay.getDay();
 
     const days = [];
-    
+
     // Dias vazios do início
     for (let i = 0; i < startingDayOfWeek; i++) {
       days.push(null);
     }
-    
+
     // Dias do mês
     for (let day = 1; day <= daysInMonth; day++) {
       days.push(new Date(year, month, day));
     }
-    
+
     return days;
   };
 
@@ -319,15 +319,15 @@ const CustomDatePicker = ({ value, onChange, maxDate, minDate, label, icon: Icon
 
   const isDateDisabled = (date) => {
     if (!date) return true;
-    
+
     // Não permite datas futuras (após hoje)
     const dateToCheck = new Date(date);
     dateToCheck.setHours(0, 0, 0, 0);
     const todayCheck = new Date();
     todayCheck.setHours(0, 0, 0, 0);
-    
+
     if (dateToCheck > todayCheck) return true;
-    
+
     // Verifica outras restrições
     if (maxDate && date > new Date(maxDate)) return true;
     if (minDate && date < new Date(minDate)) return true;
@@ -351,7 +351,7 @@ const CustomDatePicker = ({ value, onChange, maxDate, minDate, label, icon: Icon
     const prevMonth = new Date(currentMonth);
     prevMonth.setMonth(currentMonth.getMonth() - 1);
     prevMonth.setDate(1);
-    
+
     if (minDate) {
       const minDateObj = new Date(minDate);
       minDateObj.setDate(1);
@@ -364,13 +364,13 @@ const CustomDatePicker = ({ value, onChange, maxDate, minDate, label, icon: Icon
     const nextMonth = new Date(currentMonth);
     nextMonth.setMonth(currentMonth.getMonth() + 1);
     nextMonth.setDate(1);
-    
+
     // Não permite navegar para meses futuros
     const todayMonth = new Date();
     todayMonth.setDate(1);
-    
+
     if (nextMonth > todayMonth) return false;
-    
+
     if (maxDate) {
       const maxDateObj = new Date(maxDate);
       maxDateObj.setDate(1);
@@ -402,11 +402,11 @@ const CustomDatePicker = ({ value, onChange, maxDate, minDate, label, icon: Icon
               >
                 <ChevronDown className={`w-5 h-5 ${currentTheme.buttonText} rotate-90 group-hover:scale-110 transition-transform duration-200`} />
               </button>
-              
+
               <h3 className="text-white font-bold text-lg">
                 {monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}
               </h3>
-              
+
               <button
                 type="button"
                 onClick={() => navigateMonth(1)}
@@ -448,13 +448,13 @@ const CustomDatePicker = ({ value, onChange, maxDate, minDate, label, icon: Icon
                     disabled={isDisabled}
                     className={`
                       h-10 w-10 rounded-xl text-sm font-semibold transition-all duration-200 relative
-                      ${isSelected 
-                        ? `${currentTheme.selectedBg} text-white shadow-lg transform scale-110` 
+                      ${isSelected
+                        ? `${currentTheme.selectedBg} text-white shadow-lg transform scale-110`
                         : isToday
-                        ? `${currentTheme.todayBg} ${currentTheme.todayText} border-2 ${currentTheme.todayBorder} font-bold`
-                        : isDisabled
-                        ? 'text-gray-600 cursor-not-allowed opacity-50'
-                        : `text-gray-300 ${currentTheme.buttonHover} hover:text-white hover:scale-105 hover:shadow-md`
+                          ? `${currentTheme.todayBg} ${currentTheme.todayText} border-2 ${currentTheme.todayBorder} font-bold`
+                          : isDisabled
+                            ? 'text-gray-600 cursor-not-allowed opacity-50'
+                            : `text-gray-300 ${currentTheme.buttonHover} hover:text-white hover:scale-105 hover:shadow-md`
                       }
                     `}
                   >
@@ -504,7 +504,7 @@ const CustomDatePicker = ({ value, onChange, maxDate, minDate, label, icon: Icon
           {label}
         </label>
       )}
-      
+
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
@@ -535,11 +535,11 @@ const CustomDatePicker = ({ value, onChange, maxDate, minDate, label, icon: Icon
               >
                 <ChevronDown className={`w-5 h-5 ${currentTheme.buttonText} rotate-90 group-hover:scale-110 transition-transform duration-200`} />
               </button>
-              
+
               <h3 className="text-white font-bold text-lg">
                 {monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}
               </h3>
-              
+
               <button
                 type="button"
                 onClick={() => navigateMonth(1)}
@@ -581,13 +581,13 @@ const CustomDatePicker = ({ value, onChange, maxDate, minDate, label, icon: Icon
                     disabled={isDisabled}
                     className={`
                       h-8 w-8 rounded-lg text-sm font-medium transition-all duration-200 relative
-                      ${isSelected 
-                        ? `${currentTheme.selectedBg} text-white shadow-lg transform scale-110` 
+                      ${isSelected
+                        ? `${currentTheme.selectedBg} text-white shadow-lg transform scale-110`
                         : isToday
-                        ? `${currentTheme.todayBg} ${currentTheme.todayText} border ${currentTheme.todayBorder} font-bold`
-                        : isDisabled
-                        ? 'text-gray-600 cursor-not-allowed opacity-50'
-                        : `text-gray-300 ${currentTheme.buttonHover} hover:text-white hover:scale-105`
+                          ? `${currentTheme.todayBg} ${currentTheme.todayText} border ${currentTheme.todayBorder} font-bold`
+                          : isDisabled
+                            ? 'text-gray-600 cursor-not-allowed opacity-50'
+                            : `text-gray-300 ${currentTheme.buttonHover} hover:text-white hover:scale-105`
                       }
                     `}
                   >
@@ -796,35 +796,35 @@ const MetricCard = ({
   };
 
   return (
-  <div className={`
+    <div className={`
     relative overflow-hidden rounded-2xl p-6 transition-all duration-300
     border border-primaryColor/20 hover:border-primaryColor/40
     hover:scale-105 hover:shadow-glow group cursor-pointer
     ${gradient}
   `}>
-    {/* Efeito de brilho sutil */}
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -translate-x-full group-hover:translate-x-full" />
+      {/* Efeito de brilho sutil */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -translate-x-full group-hover:translate-x-full" />
 
-    <div className="relative z-10 flex items-center justify-between">
-      <div>
-        <p className="text-sm font-medium text-gray-300 mb-1">{title}</p>
-        <p className="text-3xl font-bold text-white mb-2">
-          {isLoading ? (
-            <div className="w-16 h-8 bg-gray-700 rounded animate-pulse" />
-          ) : (
-            value?.toLocaleString('pt-BR') || '0'
-          )}
-        </p>
+      <div className="relative z-10 flex items-center justify-between">
+        <div>
+          <p className="text-sm font-medium text-gray-300 mb-1">{title}</p>
+          <p className="text-3xl font-bold text-white mb-2">
+            {isLoading ? (
+              <div className="w-16 h-8 bg-gray-700 rounded animate-pulse" />
+            ) : (
+              value?.toLocaleString('pt-BR') || '0'
+            )}
+          </p>
           <p className="text-xs text-gray-400">
             {description} {getPeriodDescription()}
           </p>
-      </div>
-      <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm">
-        <Icon className="w-6 h-6 text-primaryColor" />
+        </div>
+        <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm">
+          <Icon className="w-6 h-6 text-primaryColor" />
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
 };
 
 /**
@@ -903,8 +903,8 @@ export function DashboardV2() {
   useEffect(() => {
     // Atualiza as métricas a cada 30 segundos apenas se o período for 'today'
     if (selectedPeriod === 'today') {
-    const interval = setInterval(loadMetrics, 30000);
-    return () => clearInterval(interval);
+      const interval = setInterval(loadMetrics, 30000);
+      return () => clearInterval(interval);
     }
   }, [selectedPeriod]);
 
@@ -918,13 +918,13 @@ export function DashboardV2() {
               Métricas do Sistema
             </h1>
             <p className="text-gray-300">
-              Acompanhe o desempenho em tempo real do seu Zap GPT
+              Acompanhe o desempenho em tempo real do seu OneZap
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-4 sm:mt-0">
             {/* Filtro de Período */}
-            <PeriodFilter 
+            <PeriodFilter
               selectedPeriod={selectedPeriod}
               onPeriodChange={handlePeriodChange}
               isLoading={isLoading}

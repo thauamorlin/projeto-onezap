@@ -1,0 +1,6 @@
+node_modules
+sessions
+credentials
+*.log
+.env
+.env.local

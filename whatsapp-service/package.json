@@ -1,0 +1,27 @@
+{
+    "name": "onezap-whatsapp-service",
+    "version": "1.0.0",
+    "description": "WhatsApp connection service for OneZap SaaS",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js",
+        "docker:build": "docker build -t onezap-whatsapp .",
+        "docker:run": "docker run -p 8080:8080 onezap-whatsapp"
+    },
+    "dependencies": {
+        "@whiskeysockets/baileys": "^6.7.16",
+        "cors": "^2.8.5",
+        "express": "^4.21.2",
+        "firebase-admin": "^13.0.2",
+        "pino": "^9.6.0",
+        "qrcode": "^1.5.4",
+        "ws": "^8.18.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.9"
+    },
+    "engines": {
+        "node": "20"
+    }
+}

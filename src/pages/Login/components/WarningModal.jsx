@@ -27,7 +27,7 @@ export const InitialWarningModal = ({ isOpen, onClose }) => {
 						transition={{ duration: 0.5 }}
 					>
 						<p className="text-lg font-bold text-center text-white">
-							✅ Estamos com novidades no Zap GPT!
+							✅ Estamos com novidades no OneZap!
 						</p>
 						<p className="text-sm text-gray-300 text-center mt-2 leading-relaxed">
 							Assista ao vídeo abaixo para saber mais sobre as{" "}
@@ -78,7 +78,7 @@ export const InitialWarningModal = ({ isOpen, onClose }) => {
 								shell.openExternal("https://payfast.greenn.com.br/77547");
 							}}
 						>
-							Adquira o Zap GPT Oficial
+							Adquira o OneZap Oficial
 						</button>
 					</motion.div>
 				</div>

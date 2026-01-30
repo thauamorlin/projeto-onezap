@@ -23,56 +23,83 @@ module.exports = {
       },
 
       colors: {
-        primaryColor: "#2AB09C",
-        secondColor: "#f3eada",
-        selectedColor: "#2f4858",
-        backgroundColor: "#F2F2F2",
-        dashboardBg: "#1a202c",
-        dashboardCard: "#2d3748",
-        dashboardAccent: "#38d9a9",
-        dashboardPrimary: "#2AB09C",
-        menuBg: "#0f172a",
-        menuBorder: "#1e293b",
-        menuItem: "#1e293b",
-        menuGradientStart: "#1e293b",
-        menuGradientEnd: "#111827",
-        menuHoverStart: "#2f4466",
-        menuHoverEnd: "#1e293b",
-        accessValidText: "#4ade80",
-        accessBg: "#111827",
-        navbarBg: "#0c1524",
-        inactiveBtnBg: "#152238",
-        inactiveBtnHover: "#182642",
-        instanceBtnBg: "#1a3a59",
-        instanceBtnText: "#9ed8ec",
-        instanceBtnHover: "#1f4c75",
-        instanceBtnBorder: "#2a6ca8",
-        instanceBtnIndicator: "#4db4d7",
-        chatSidebarBg: "#0f172a",
-        chatHeaderBg: "#1a2234",
-        chatContentBg: "#111827",
-        chatItemHover: "#1e293b",
-        chatItemSelected: "#1e293b",
-        chatMessageFromMeBg: "#2a4165",
-        chatMessageFromMeHover: "#2d497a",
-        chatMessageFromOtherBg: "#1e293b",
-        chatInputBg: "#0f172a",
-        chatWelcomeBg: "#1a2234",
-        loginGradientFrom: "#1a2333",
-        loginGradientVia: "#1e2a3b",
-        loginGradientTo: "#182635",
-        navButtonActive: "#38d9a9",
-        navButtonIndicator: "#2AB09C",
-        navButtonHover: "#38d9a9CC",
-        logButtonIcon: "#38d9a9",
-        navText: "#38d9a9",
-        navTextStrong: "#38d9a9",
-        navIndicator: "#2AB09C",
-        navTextHover: "#38d9a9CC",
-        navTextMuted: "#9ed8ec",
-        actionButton: "#2AB09C",
-        actionButtonHover: "#38d9a9",
+        // OneZap Brand Colors - Apple-like Dark + Blue
+        primaryColor: "#0A84FF",        // Azul Apple (antigo: #2AB09C)
+        secondColor: "#1C1C1E",         // Cinza escuro
+        selectedColor: "#0066CC",       // Azul escuro selecionado
+        backgroundColor: "#000000",     // Preto puro
+
+        // Dashboard Theme - Dark Mode
+        dashboardBg: "#000000",         // Preto puro (antigo: #1a202c)
+        dashboardCard: "#1C1C1E",       // Cinza escuro (antigo: #2d3748)
+        dashboardAccent: "#0A84FF",     // Azul Apple (antigo: #38d9a9)
+        dashboardPrimary: "#0A84FF",    // Azul Apple (antigo: #2AB09C)
+
+        // Menu Theme
+        menuBg: "#000000",
+        menuBorder: "#38383A",
+        menuItem: "#1C1C1E",
+        menuGradientStart: "#1C1C1E",
+        menuGradientEnd: "#000000",
+        menuHoverStart: "#2C2C2E",
+        menuHoverEnd: "#1C1C1E",
+
+        // Access/Auth
+        accessValidText: "#30D158",     // Verde Apple
+        accessBg: "#000000",
+
+        // Navbar
+        navbarBg: "#000000",
+        inactiveBtnBg: "#1C1C1E",
+        inactiveBtnHover: "#2C2C2E",
+
+        // Instance Buttons
+        instanceBtnBg: "#0A84FF20",     // Azul com transparência
+        instanceBtnText: "#0A84FF",
+        instanceBtnHover: "#0A84FF30",
+        instanceBtnBorder: "#0A84FF",
+        instanceBtnIndicator: "#0A84FF",
+
+        // Chat Theme
+        chatSidebarBg: "#000000",
+        chatHeaderBg: "#1C1C1E",
+        chatContentBg: "#000000",
+        chatItemHover: "#2C2C2E",
+        chatItemSelected: "#0A84FF20",
+        chatMessageFromMeBg: "#0A84FF",
+        chatMessageFromMeHover: "#409CFF",
+        chatMessageFromOtherBg: "#2C2C2E",
+        chatInputBg: "#1C1C1E",
+        chatWelcomeBg: "#1C1C1E",
+
+        // Login Gradient
+        loginGradientFrom: "#000000",
+        loginGradientVia: "#0A84FF10",
+        loginGradientTo: "#000000",
+
+        // Navigation Buttons
+        navButtonActive: "#0A84FF",
+        navButtonIndicator: "#0A84FF",
+        navButtonHover: "#409CFF",
+        logButtonIcon: "#0A84FF",
+        navText: "#0A84FF",
+        navTextStrong: "#0A84FF",
+        navIndicator: "#0A84FF",
+        navTextHover: "#409CFF",
+        navTextMuted: "#8E8E93",
+
+        // Action Buttons
+        actionButton: "#0A84FF",
+        actionButtonHover: "#409CFF",
         actionButtonText: "#ffffff",
+
+        // Semantic Colors (Apple-like)
+        onezapSuccess: "#30D158",
+        onezapWarning: "#FF9F0A",
+        onezapError: "#FF453A",
+        onezapInfo: "#0A84FF",
+
+        // Shadcn/Radix UI Variables
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",

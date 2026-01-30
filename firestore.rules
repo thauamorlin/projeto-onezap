@@ -1,0 +1,69 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function hasActiveSubscription() {
+      return isAuthenticated() && 
+        exists(/databases/$(database)/documents/subscriptions/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/subscriptions/$(request.auth.uid)).data.status == 'active';
+    }
+    
+    // Users collection - each user can only access their own data
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+    
+    // Subscriptions - users can read their own, only backend can write
+    match /subscriptions/{userId} {
+      allow read: if isOwner(userId);
+      allow write: if false; // Only backend (admin SDK) can write
+    }
+    
+    // WhatsApp instances - users can CRUD their own instances
+    match /instances/{instanceId} {
+      allow read, write: if isAuthenticated() && 
+        resource.data.userId == request.auth.uid;
+      allow create: if isAuthenticated() && 
+        request.resource.data.userId == request.auth.uid;
+    }
+    
+    // Instance settings
+    match /instances/{instanceId}/settings/{settingId} {
+      allow read, write: if isAuthenticated() && 
+        get(/databases/$(database)/documents/instances/$(instanceId)).data.userId == request.auth.uid;
+    }
+    
+    // Conversations - users access only their instance conversations
+    match /instances/{instanceId}/conversations/{conversationId} {
+      allow read, write: if isAuthenticated() && 
+        get(/databases/$(database)/documents/instances/$(instanceId)).data.userId == request.auth.uid;
+    }
+    
+    // Messages within conversations
+    match /instances/{instanceId}/conversations/{conversationId}/messages/{messageId} {
+      allow read, write: if isAuthenticated() && 
+        get(/databases/$(database)/documents/instances/$(instanceId)).data.userId == request.auth.uid;
+    }
+    
+    // AI Configurations per user
+    match /aiConfigs/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+    
+    // Usage metrics (for billing/limits)
+    match /usage/{userId} {
+      allow read: if isOwner(userId);
+      allow write: if false; // Only backend can write
+    }
+  }
+}

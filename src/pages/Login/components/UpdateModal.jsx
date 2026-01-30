@@ -29,7 +29,7 @@ export const UpdateModal = ({ isOpen, onClose }) => {
 						<ul className="list-disc mt-2 list-inside text-lg text-gray-300 space-y-3">
 							{[
 								{
-									text: "Opção de usar o Zap GPT diretamente na <strong>nuvem</strong>",
+									text: "Opção de usar o OneZap diretamente na <strong>nuvem</strong>",
 								},
 								{
 									text: "Espelho do <strong>WhatsApp</strong> no aplicativo",

@@ -29,7 +29,7 @@ export const TutorialModal = ({ isOpen, onClose }) => {
 					</DialogTitle>
 				</DialogHeader>
 				<div className="text-gray-300 mb-4">
-					Aprenda a utilizar todos os recursos do Zap GPT através dos nossos vídeos tutoriais.
+					Aprenda a utilizar todos os recursos do OneZap através dos nossos vídeos tutoriais.
 				</div>
 
 				{tutorialModules.map((module) => (
@@ -50,7 +50,7 @@ export const TutorialModal = ({ isOpen, onClose }) => {
 											<div className="absolute inset-0 flex items-center justify-center bg-dashboardCard/70">
 												<img
 													src={LogoImage}
-													alt="ZapGPT Logo"
+													alt="OneZap Logo"
 													className="h-16 w-auto object-contain opacity-40"
 												/>
 											</div>

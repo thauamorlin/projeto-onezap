@@ -153,7 +153,7 @@ function getAIModeStatus(instanceId, chatId) {
   if (isGroup) {
     return {
       active: false,
-      reason: 'O Zap GPT ainda não responde grupos',
+      reason: 'O OneZap ainda não responde grupos',
       canToggle: false,
       source: 'default',
       isGroup: true
@@ -244,7 +244,7 @@ function getAIModeStatus(instanceId, chatId) {
 function getModeRestrictionMessage(status) {
   // Verifica se é um grupo
   if (status.isGroup) {
-    return 'O Zap GPT ainda não responde grupos. Esta funcionalidade está em desenvolvimento.';
+    return 'O OneZap ainda não responde grupos. Esta funcionalidade está em desenvolvimento.';
   }
 
   switch (status.source) {

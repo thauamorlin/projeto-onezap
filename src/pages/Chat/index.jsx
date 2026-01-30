@@ -909,8 +909,8 @@ export function Chat({ instanceId }) {
 
 		try {
 			let date;
-		const timestampNum = Number(timestamp);
-			
+			const timestampNum = Number(timestamp);
+
 			if (Number.isNaN(timestampNum) || timestampNum <= 0) {
 				return "";
 			}
@@ -946,7 +946,7 @@ export function Chat({ instanceId }) {
 		try {
 			let date;
 			const timestampNum = Number(timestamp);
-			
+
 			if (Number.isNaN(timestampNum) || timestampNum <= 0) {
 				return "";
 			}
@@ -1755,7 +1755,7 @@ export function Chat({ instanceId }) {
 		try {
 			let date;
 			const timestampNum = Number(timestamp);
-			
+
 			if (Number.isNaN(timestampNum) || timestampNum <= 0) {
 				return "";
 			}
@@ -1813,7 +1813,7 @@ export function Chat({ instanceId }) {
 				if (Number.isNaN(timestampNum) || timestampNum <= 0) {
 					return null;
 				}
-				
+
 				// Se o timestamp está em segundos (< 10 bilhões), converte para milissegundos
 				if (timestampNum < 10000000000) {
 					return fromUnixTime(timestampNum);
@@ -1939,13 +1939,13 @@ export function Chat({ instanceId }) {
 									<div className="space-y-4">
 										{(() => {
 											const messagesWithSeparators = [];
-											
+
 											messages.forEach((msg, index) => {
 												const isFromMe = msg.key?.fromMe;
 												const isAI = isAIMessage(msg);
 												const messageId = msg.key?.id || `msg-${index}`;
 												const messageContent = renderMessageContent(msg);
-												
+
 												// Testa múltiplas fontes de timestamp
 												const getValidTimestamp = () => {
 													const timestampSources = [
@@ -1955,30 +1955,30 @@ export function Chat({ instanceId }) {
 														msg.t,
 														Date.now() / 1000
 													];
-													
+
 													for (const ts of timestampSources) {
 														if (ts && Number(ts) > 0) {
 															return ts;
 														}
 													}
-													
+
 													return Date.now() / 1000;
 												};
-												
+
 												const timestamp = getValidTimestamp();
 
 												if (messageContent === null) return;
 
 												// Verifica se precisa adicionar separador de data
 												let shouldShowSeparator = false;
-												
+
 												if (index === 0) {
 													// Primeira mensagem: sempre mostra separador
 													shouldShowSeparator = true;
 												} else {
 													// Para outras mensagens, verifica se é um dia diferente da anterior
 													const prevMsg = messages[index - 1];
-													
+
 													// Usa a mesma função para obter timestamp da mensagem anterior
 													const getPrevValidTimestamp = () => {
 														const timestampSources = [
@@ -1988,18 +1988,18 @@ export function Chat({ instanceId }) {
 															prevMsg.t,
 															Date.now() / 1000
 														];
-														
+
 														for (const ts of timestampSources) {
 															if (ts && Number(ts) > 0) {
 																return ts;
 															}
 														}
-														
+
 														return Date.now() / 1000;
 													};
-													
+
 													const prevTimestamp = getPrevValidTimestamp();
-													
+
 													if (!isSameDay(timestamp, prevTimestamp)) {
 														shouldShowSeparator = true;
 													}
@@ -2037,13 +2037,12 @@ export function Chat({ instanceId }) {
 																}`}
 														>
 															{isFromMe && (
-																<div className={`flex items-center mb-2 text-xs font-medium border-b pb-1 ${
-																	isAI 
+																<div className={`flex items-center mb-2 text-xs font-medium border-b pb-1 ${isAI
 																		? "text-purple-200 border-purple-400/30"
 																		: isFollowUpMessage(msg)
 																			? "text-yellow-200 border-yellow-400/30"
 																			: "text-white/70 border-white/20"
-																}`}>
+																	}`}>
 																	{isAI && <span className="mr-1">🤖</span>}
 																	{isFollowUpMessage(msg) && <Bell size={12} className="mr-1" />}
 																	Você
@@ -2147,7 +2146,7 @@ export function Chat({ instanceId }) {
 									/>
 								</svg>
 								<p className="text-lg text-gray-300 mb-2">
-									Bem-vindo ao chat do Zap GPT
+									Bem-vindo ao chat do OneZap
 								</p>
 								<p className="text-gray-400">
 									Selecione um chat para visualizar as mensagens

@@ -1,6 +1,6 @@
 {
-  "name": "desktop",
-  "version": "3.2.1",
+  "name": "onezap-desktop",
+  "version": "4.0.0",
   "private": true,
   "homepage": "./",
   "main": "src/electron-starter.js",
@@ -49,9 +49,9 @@
     ]
   },
   "build": {
-    "appId": "zap-gpt",
-    "productName": "Zap GPT",
-    "copyright": "Copyright @2024 Zap GPT",
+    "appId": "com.onezap.app",
+    "productName": "OneZap",
+    "copyright": "Copyright @2026 OneZap",
     "buildVersion": "1",
     "files": [
       "./dist-src/electron-starter.js",
@@ -65,7 +65,7 @@
     },
     "extends": null,
     "mac": {
-      "category": "zapgpt"
+      "category": "public.app-category.business"
     },
     "win": {
       "target": "nsis"
@@ -98,6 +98,7 @@
     "dotenv": "^16.4.7",
     "electron-router-dom": "^1.0.5",
     "electron-updater": "^6.1.8",
+    "firebase": "^12.8.0",
     "framer-motion": "^11.16.0",
     "fs-extra": "^11.3.0",
     "jwt-decode": "^4.0.0",

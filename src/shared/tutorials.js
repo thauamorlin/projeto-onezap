@@ -1,17 +1,17 @@
 export const tutorialModules = [
   {
     id: 1,
-    title: "Instalação do Zap GPT",
+    title: "Instalação do OneZap",
     videos: [
       {
         id: 8,
-        title: "Como baixar o ZapGPT no Windows",
+        title: "Como baixar o OneZap no Windows",
         duration: "1:53",
         url: "https://youtu.be/qOBIYYLWOD4",
       },
       {
         id: 3,
-        title: "Executando o Zap GPT no Mac",
+        title: "Executando o OneZap no Mac",
         duration: "1:56",
         url: "https://youtu.be/JOgzcQh76kU",
       },
@@ -19,23 +19,23 @@ export const tutorialModules = [
   },
   {
     id: 2,
-    title: "Configuração e Uso do Zap GPT",
+    title: "Configuração e Uso do OneZap",
     videos: [
       {
         id: 1,
-        title: "Usando o Zap GPT com o Gemini",
+        title: "Usando o OneZap com o Gemini",
         duration: "3:40",
         url: "https://youtu.be/ehFPR2PsdeI",
       },
       {
         id: 2,
-        title: "Usando o Zap GPT com o GPT",
+        title: "Usando o OneZap com o GPT",
         duration: "5:44",
         url: "https://youtu.be/L1VrXVDaxQ4",
       },
       {
         id: 9,
-        title: "Como criar prompts para o ZapGPT",
+        title: "Como criar prompts para o OneZap",
         duration: "6:40",
         url: "https://youtu.be/KqNvtMuHtNI",
       },
@@ -47,7 +47,7 @@ export const tutorialModules = [
       },
       {
         id: 10,
-        title: "Como criar uma nova instância de conexão dentro do ZapGPT",
+        title: "Como criar uma nova instância de conexão dentro do OneZap",
         duration: "0:34",
         url: "https://youtu.be/JuaHfY0FYec",
       },
@@ -61,17 +61,17 @@ export const tutorialModules = [
   },
   {
     id: 3,
-    title: "Hospedando o Zap GPT em uma VPS",
+    title: "Hospedando o OneZap em uma VPS",
     videos: [
       {
         id: 5,
-        title: "Como hospedar o Zap GPT no Database Mart",
+        title: "Como hospedar o OneZap no Database Mart",
         duration: "8:21",
         url: "https://youtu.be/Mti6aWyzW9g",
       },
       {
         id: 4,
-        title: "Alternativa: Como subir o Zap GPT na AWS Lightsail",
+        title: "Alternativa: Como subir o OneZap na AWS Lightsail",
         duration: "2:38",
         url: "https://youtu.be/hnXzWqoMZBs",
       },

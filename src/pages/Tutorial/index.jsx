@@ -28,7 +28,7 @@ export function Tutorial() {
 						Tutoriais em Vídeo
 					</h1>
 					<p className="text-gray-300">
-						Aprenda a utilizar todos os recursos do Zap GPT através dos nossos
+						Aprenda a utilizar todos os recursos do OneZap através dos nossos
 						vídeos tutoriais.
 					</p>
 				</div>
@@ -53,11 +53,11 @@ export function Tutorial() {
 								>
 									<div className="relative">
 										<div className="aspect-video bg-dashboardBg overflow-hidden relative">
-											{/* Placeholder com logo do ZapGPT até termos as thumbnails reais */}
+											{/* Placeholder com logo do OneZap até termos as thumbnails reais */}
 											<div className="absolute inset-0 flex items-center justify-center bg-dashboardCard/70">
 												<img
 													src={LogoImage}
-													alt="ZapGPT Logo"
+													alt="OneZap Logo"
 													className="h-16 w-auto object-contain opacity-40"
 												/>
 											</div>

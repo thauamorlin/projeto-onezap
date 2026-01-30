@@ -132,11 +132,10 @@ export const Login = ({ onLoginSuccess }) => {
 									setEmail(e.target.value);
 									setEmailError("");
 								}}
-								className={`w-full px-4 py-3 rounded-lg border ${
-									emailError
+								className={`w-full px-4 py-3 rounded-lg border ${emailError
 										? "border-red-500 focus:ring-red-500"
 										: "border-primaryColor/30 focus:border-primaryColor focus:ring-primaryColor/30"
-								} bg-dashboardBg text-white focus:outline-none focus:ring-2`}
+									} bg-dashboardBg text-white focus:outline-none focus:ring-2`}
 								placeholder="Digite seu email"
 								required
 							/>
@@ -219,7 +218,7 @@ export const Login = ({ onLoginSuccess }) => {
 							}}
 							className="bg-slate-200/10 backdrop-blur-sm rounded-lg px-4 py-2 text-sm font-medium text-purple-400 flex items-center space-x-1 border border-purple-500/20 hover:bg-slate-200/15 transition-all duration-300"
 						>
-							<span className="flex items-center">🚀 Instagram @ozapgpt</span>
+							<span className="flex items-center">🚀 Instagram @onezap</span>
 						</button>
 
 						<button

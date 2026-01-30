@@ -12,7 +12,7 @@ export const LoginHelpModal = ({ isOpen, onClose }) => {
 			<DialogContent className="max-w-[600px] border border-primaryColor/20 bg-gradient-to-br from-[#1a202c]/95 to-[#182635]/95 backdrop-blur-md shadow-xl">
 				<DialogHeader className="border-b border-primaryColor/10 pb-4">
 					<DialogTitle className="text-xl font-bold text-left text-white">
-						🔑 Como entrar no Zap GPT
+						🔑 Como entrar no OneZap
 					</DialogTitle>
 				</DialogHeader>
 				<div className="flex flex-col items-center">

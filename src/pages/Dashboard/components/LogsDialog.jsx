@@ -77,7 +77,7 @@ export const LogsDialog = ({ isOpen, onClose, logs, handleCopyLogs }) => {
 			<DialogContent className="max-w-3xl">
 				<DialogHeader>
 					<DialogTitle className="flex items-center gap-2">
-						<span className="text-dashboardAccent">📋</span> Zap GPT - Logs
+						<span className="text-dashboardAccent">📋</span> OneZap - Logs
 					</DialogTitle>
 					<p className="mt-1 text-sm text-muted-foreground">
 						Registros técnicos do sistema

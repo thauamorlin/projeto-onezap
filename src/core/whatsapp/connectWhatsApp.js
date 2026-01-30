@@ -121,6 +121,7 @@ async function connectWhatsApp(event, instanceId) {
           console.log(`Status de conexão atualizado para ${instanceId}: conectado=false, motivo=${lastDisconnect?.error?.message || "Desconectado"}`);
 
           if (
+            lastDisconnect?.error?.message === "disconnect by logout onezap" ||
             lastDisconnect?.error?.message === "disconnect by logout zap-gpt"
           ) {
             return;
@@ -154,7 +155,7 @@ async function connectWhatsApp(event, instanceId) {
                   // Se for diretório, remove recursivamente
                   fs.rmdirSync(filePath, { recursive: true });
                 } else {
-                // Se for arquivo, remove normalmente
+                  // Se for arquivo, remove normalmente
                   fs.unlinkSync(filePath);
                 }
               }

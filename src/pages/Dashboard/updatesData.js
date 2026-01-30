@@ -95,7 +95,7 @@ export const updates = [
 				icon: "📚",
 				title: "Página de Tutoriais",
 				content:
-					"Adicionada uma página de tutoriais completos sobre o uso do Zap GPT diretamente dentro do app, facilitando o aprendizado de todas as funcionalidades.",
+					"Adicionada uma página de tutoriais completos sobre o uso do OneZap diretamente dentro do app, facilitando o aprendizado de todas as funcionalidades.",
 			},
 			{
 				icon: "🔔",
@@ -171,7 +171,7 @@ export const updates = [
 				icon: "🧠",
 				title: "Gerenciamento de Assistentes da OpenAI",
 				content:
-					"O Zap GPT agora permite configurar seus assistentes personalizados da OpenAI! É possível alterar prompts, temperatura, top-p e até mesmo escolher o modelo do assistente diretamente no app.",
+					"O OneZap agora permite configurar seus assistentes personalizados da OpenAI! É possível alterar prompts, temperatura, top-p e até mesmo escolher o modelo do assistente diretamente no app.",
 			},
 			{
 				icon: "📩",
@@ -217,7 +217,7 @@ export const updates = [
 				icon: "🚫",
 				title: "Correção para evitar abertura de múltiplas janelas",
 				content:
-					"Agora o Zap GPT impede que o aplicativo seja aberto mais de uma vez ao mesmo tempo. Se já houver uma janela em execução, ela será trazida para frente.",
+					"Agora o OneZap impede que o aplicativo seja aberto mais de uma vez ao mesmo tempo. Se já houver uma janela em execução, ela será trazida para frente.",
 			},
 		],
 	},
@@ -239,7 +239,7 @@ export const updates = [
 				icon: "🧠",
 				title: "Nova Opção de IA: DeepSeek",
 				content:
-					"Adicionada a opção de utilizar o modelo DeepSeek como alternativa de IA no Zap GPT.",
+					"Adicionada a opção de utilizar o modelo DeepSeek como alternativa de IA no OneZap.",
 			},
 			{
 				icon: "🎨",
@@ -304,7 +304,7 @@ export const updates = [
 				icon: "📅",
 				title: "Exibição da Data de Acesso",
 				content:
-					"O Dashboard agora exibe até quando você tem acesso ao Zap GPT.",
+					"O Dashboard agora exibe até quando você tem acesso ao OneZap.",
 			},
 			{
 				icon: "🚪",
@@ -361,13 +361,13 @@ export const updates = [
 				icon: "🌌",
 				title: "Adição do Gemini",
 				content:
-					"Agora o Zap GPT conta com suporte ao modelo Gemini, trazendo ainda mais poder para as respostas! E já conta com entedimento de imagem e áudio.",
+					"Agora o OneZap conta com suporte ao modelo Gemini, trazendo ainda mais poder para as respostas! E já conta com entedimento de imagem e áudio.",
 			},
 			{
 				icon: "🔒",
 				title: "Autenticação",
 				content:
-					"Adicionada autenticação ao Zap GPT, garantindo que apenas usuários autorizados tenham acesso às funcionalidades.",
+					"Adicionada autenticação ao OneZap, garantindo que apenas usuários autorizados tenham acesso às funcionalidades.",
 			},
 			{
 				icon: "✂️",
@@ -397,7 +397,7 @@ export const updates = [
 				icon: "🤝",
 				title: "Identificação de contatos pelo nome",
 				content:
-					"O Zap GPT agora sabe o nome do contato com quem está interagindo, permitindo respostas ainda mais personalizadas.",
+					"O OneZap agora sabe o nome do contato com quem está interagindo, permitindo respostas ainda mais personalizadas.",
 			},
 		],
 	},

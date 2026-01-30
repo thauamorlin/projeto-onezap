@@ -13,25 +13,47 @@ let settings = {};
  */
 const userDataPath = process.env.HOME || process.env.USERPROFILE || "";
 
+// Novo padrão de diretório (OneZap)
+const NEW_AUTH_PREFIX = "onezap-auth";
+// Legado (para retrocompatibilidade)
+const LEGACY_AUTH_PREFIX = "zap-gpt-auth";
+
 /**
+ * Retorna o nome do diretório para uma instância
+ * @param {string} instanceId
+ * @param {string} prefix
+ */
+function getAuthDirName(instanceId, prefix) {
+  return instanceId === "default" ? prefix : `${prefix}-${instanceId}`;
+}
+
+/**
+ * Obtém o diretório de autenticação, verificando primeiro o novo padrão e fazendo fallback para o legado
  * @param {string} instanceId
  */
-function getSettingsFilePath(instanceId) {
-  return path.join(
-    userDataPath,
-    instanceId === "default" ? "zap-gpt-auth" : `zap-gpt-auth-${instanceId}`,
-    "settings.json"
-  );
+function getAuthDir(instanceId) {
+  const newDir = path.join(userDataPath, getAuthDirName(instanceId, NEW_AUTH_PREFIX));
+  const legacyDir = path.join(userDataPath, getAuthDirName(instanceId, LEGACY_AUTH_PREFIX));
+
+  // Se o novo diretório existe, usa ele
+  if (fs.existsSync(newDir)) {
+    return newDir;
+  }
+
+  // Se o diretório legado existe, usa ele (retrocompatibilidade)
+  if (fs.existsSync(legacyDir)) {
+    return legacyDir;
+  }
+
+  // Nenhum existe, retorna o novo (será criado posteriormente)
+  return newDir;
 }
 
 /**
  * @param {string} instanceId
  */
-function getAuthDir(instanceId) {
-  return path.join(
-    userDataPath,
-    instanceId === "default" ? "zap-gpt-auth" : `zap-gpt-auth-${instanceId}`
-  );
+function getSettingsFilePath(instanceId) {
+  return path.join(getAuthDir(instanceId), "settings.json");
 }
 
 /**

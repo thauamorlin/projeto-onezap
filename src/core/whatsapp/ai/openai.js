@@ -277,7 +277,7 @@ async function convertAndTranscriptionAudioOpenAI({
 
 		const inputFilePath = path.join(
 			userAddress,
-			"zap-gpt-auth",
+			"onezap-auth",
 			`input-audio-${messageId}.wav`,
 		);
 
@@ -330,7 +330,7 @@ async function transcriptionImageOpenAI({
 
 		const inputFilePath = path.join(
 			userAddress,
-			"zap-gpt-auth",
+			"onezap-auth",
 			`image-${messageId}.jpg`,
 		);
 		fs.writeFile(inputFilePath, bufferImage, {}, async () => {
@@ -416,7 +416,7 @@ async function processImageMessageOpenAI({
 
 	const inputFilePath = path.join(
 		userAddress,
-		"zap-gpt-auth",
+		"onezap-auth",
 		`image-${messageId}.jpg`,
 	);
 
